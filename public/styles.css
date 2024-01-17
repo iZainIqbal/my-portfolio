@@ -1,4 +1,3 @@
-@import url('https://unicons.iconscout.com/release/v4.0.8/css/line.css');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 * {
     font-family: 'Poppins', sans-serif;
@@ -11,7 +10,7 @@
 
 header {
     display: flex;
-    position: fixed;
+    position: fixed ;
     align-items: center;
     justify-content: space-between;
     top: 0;
