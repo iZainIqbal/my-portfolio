@@ -1,36 +1,103 @@
-import React from 'react';
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 
-const Contact = () =>{
-    return (
-        <>
-        <section id="contact">
-            <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="uil uil-fast-mail"></i> appdev.zain@gmail.com</p>
-                    <p><i class="uil uil-phone-alt"></i> +923066244324</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="uil uil-facebook-f"></i></a>
-                        <a href="#"><i class="uil uil-instagram"></i></a>
-                        <a href="https:/www.github.com/iZainiqbal"><i class="uil uil-github-alt"></i></a>
-                        <a href="https://www.linkedin.com/in/zain-iqbal-996a64228/"><i class="uil uil-linkedin-alt"></i></a>
-                        <br/>
-                    </div>
-                    <a href="#" class="btn btn2">Download CV</a>
-                </div>
-                <div class="contact-right">
-                    <form >
-                        <input type="text" name="Name" placeholder="Your Name" required/>
-                        <input type="email" name="email" placeholder="Your Email" required/>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn">Submit</button>
-                    </form>
-                </div>
+const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
+
+  return (
+    <section id="contact">
+      <div className="container">
+        <div className="row">
+          <div className="contact-left">
+            <h1 className="sub-title">Contact Me</h1>
+            <p>
+              <i className="uil uil-fast-mail"></i> appdev.zain@gmail.com
+            </p>
+            <p>
+              <i className="uil uil-phone-alt"></i> +92 306 6244324
+            </p>
+
+            <div className="social-icons">
+              <a href="#">
+                <i className="uil uil-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="uil uil-instagram"></i>
+              </a>
+              <a
+                href="https://github.com/iZainiqbal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="uil uil-github-alt"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/zain-iqbal-devs/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="uil uil-linkedin-alt"></i>
+              </a>
             </div>
+
+            <a
+              href="/Zain_Iqbal_CV.pdf"
+              download="Zain_Iqbal_CV.pdf"
+              className="btn btn2"
+            >
+              Download CV
+            </a>
+          </div>
+
+          <div className="contact-right">
+            <form ref={form} onSubmit={sendEmail}>
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" className="btn">
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
-        </section>
-        </>
-    );
-}
+      </div>
+    </section>
+  );
+};
+
 export default Contact;

@@ -1,32 +1,53 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const Home = () => { 
-    const [text, setText] = useState('Mobile App Developer');
-    const texts = ['Flutter Developer', 'Web Developer', 'Data Scientist', 'AI Specialist'];
-    let index = 0;
+const texts = [
+  "Flutter Developer",
+  "Unity Game Developer",
+  "Full-Stack Engineer",
+  "AI Enthusiast",
+  "Cloud Practitioner",
+  "Software Developer",
+];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            index = index + 1 === texts.length ? 0 : index + 1;
-            setText(texts[index]);
-        }, 2000); // Change text every 2 seconds
+const Home = () => {
+  const [text, setText] = useState(texts[0]);
+  const indexRef = useRef(0);
 
-        return () => clearInterval(interval); // Clean up on component unmount
-    }, []); 
-    return(
-        <section id="home">
-        <div class="hero-container">
-            <div class="info-side">
-                <h3>Hello, It's me</h3>
-                <h1>Zain Iqbal</h1>
-                <h3>I am a <span id="change-text">{text}</span></h3>
-                <p>Flutter Expert | CS Undergrad 25 | Talks about Machine Learning | Artificial Intelligence Enthusiast !</p>
-            </div>
-            <div class="hero-img">
-                <img src="images/heroPic.png" alt="Hero-Img"/>
-            </div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      indexRef.current = (indexRef.current + 1) % texts.length;
+      setText(texts[indexRef.current]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <section id="home">
+      <div className="hero-container">
+        <div className="info-side">
+          <h3>Hello, I'm</h3>
+          <h1>Zain Iqbal</h1>
+          <h3>
+            A <span id="change-text">{text}</span>
+          </h3>
+          <p>
+            I’m a Computer Science graduate passionate about building impactful
+            software — from mobile apps and web platforms to Unity games. I've
+            worked on real-world products, led projects as a startup CTO, and
+            contributed to award-winning ideas. Whether it's Flutter, Unity, or
+            React, I bring creativity, problem-solving, and clean code to
+            everything I build.
+          </p>
+          <a href="#contact" className="btn">
+            Hire Me
+          </a>
         </div>
-        </section>
-    );
-}
+        <div className="hero-img">
+          <img src="images/min.jpeg" alt="Zain Iqbal" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default Home;

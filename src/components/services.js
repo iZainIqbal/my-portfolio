@@ -1,33 +1,48 @@
-import React,{useState} from "react";
+import React from "react";
 
 const Services = () => {
-    return (
-        <section id="services">
-       <div class="container">
-            <h1 class="sub-title">My Services</h1>
-            <div class="services-list">
-                <div>
-                    <i class="uil uil-android "></i>
-                    <h2>Flutter</h2>
-                    <p>Expert in crafting cross-platform mobile applications with a rich, native-like experience using Flutter framework.Specialized in creating visually appealing and responsive user interfaces for Flutter apps, ensuring a seamless user experience.</p>
-                    <a href="#">Learn more</a>
-                </div>
-                <div>
-                    <i class="uil uil-mobile-android " ></i>
-                    <h2>Programming</h2>
-                    <p>Offering beginner-friendly programming services to individuals starting their coding journey.Providing guidance and support for beginners to grasp fundamental programming concepts and build a solid foundation for their coding skills.</p>
-                    <a href="#">Learn more</a>
-                </div>
-                <div>
-                    <i class="uil uil-react " ></i>
-                    <h2>React</h2>
-                    <p>Providing cutting-edge web development services using React, creating dynamic and interactive user interfaces.Specializing in building fast and responsive SPAs with React, optimizing web applications for speed and user engagement.</p>
-                    <a href="#">Learn more</a>
-                </div>
-            </div>
-        
-    </div>
-            </section>
-    );
-}
+  return (
+    <section id="services">
+      <div className="container">
+        <h1 className="sub-title">My Services</h1>
+        <div className="services-list">
+          <div>
+            <i className="uil uil-web-grid"></i>
+            <h2>Full-Stack Web Development</h2>
+            <p>
+              I build modern, scalable web applications using React for the
+              frontend and Node.js for backend APIs. From responsive UIs to
+              database integration and secure authentication — I deliver
+              full-stack solutions ready for production.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i className="uil uil-mobile-android"></i>
+            <h2>Mobile App Development</h2>
+            <p>
+              I specialize in crafting cross-platform apps using Flutter.
+              Whether it’s a live blood donor app or an eCommerce store, I
+              ensure clean architecture, real-time features, and polished user
+              experience across Android and iOS.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i className="uil uil-game-structure"></i>
+            <h2>Game Development</h2>
+            <p>
+              I develop lightweight and engaging mobile games using Unity. From
+              endless runners like *Chrono Chase* to clones of classics like
+              *Flappy Bird*, I focus on performance, smooth mechanics, and
+              immersive gameplay.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default Services;
