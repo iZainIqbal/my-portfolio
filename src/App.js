@@ -8,8 +8,12 @@ import Services from "./components/services";
 import Footer from "./components/footer";
 import Projects from "./components/projects";
 import Certificates from "./components/certificates";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    document.title = "Zain Iqbal";
+  }, []);
   return (
     <>
       <Header />
