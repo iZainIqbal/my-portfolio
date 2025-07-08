@@ -96,16 +96,15 @@ const Contact = () => {
               </div>
             </div>
 
-            <button
-              onClick={() =>
-                alert(
-                  "CV download would be available in the actual implementation"
-                )
-              }
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-500 transition-all duration-300 hover:scale-105"
-            >
-              <Download className="w-5 h-5" />
-              <span>Download CV</span>
+            <button>
+              <a
+                href="/Zain_Iqbal_CV.pdf"
+                download
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-500 transition-all duration-300 hover:scale-105"
+              >
+                <Download className="w-5 h-5" />
+                <span>Download CV</span>
+              </a>
             </button>
           </div>
 
